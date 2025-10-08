@@ -16,10 +16,11 @@
 *.pch
 *.res
 *.idb
-*.bin
 *.qm
 *.db
 *_pb2*
-#visual studio folder
+
+#visual studio / pycharm folder
 .vs
+.idea
 __pycache__

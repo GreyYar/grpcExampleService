@@ -9,12 +9,14 @@ import GrpcExampleService_pb2
 import GrpcExampleService_pb2_grpc
 import DBHelper
 
+APP_PORT = "50051"
+
 """ A python class that implements .proto file's methods """
 class GrpcExampleService(GrpcExampleService_pb2_grpc.GrpcExampleService):
   dbhelper = 0
   """ Gets all the information about our customers """
   def AddClient(self, request, context):
-    return self.dbhelper.add_clients(request.clientsinfo)
+    return self.dbhelper.add_clients(request.clients_info)
   """ Gets all the information about our customers """
   def GetClients(self, request, context):
     return self.dbhelper.get_clients()
@@ -32,10 +34,10 @@ def service():
     reflection.SERVICE_NAME,
   )
   reflection.enable_server_reflection(SERVICE_NAMES, server)
-  server.add_insecure_port('[::]:50051')
+  server.add_insecure_port(f'[::]:{APP_PORT}')
   server.start()
   server.wait_for_termination()
 
 if __name__ == '__main__':
-    print('GrpcExample service start')
+    print(f'GrpcExample service start at port {APP_PORT}')
     service()
