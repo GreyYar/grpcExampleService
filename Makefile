@@ -1,4 +1,4 @@
-.PHONY: deps gen start
+.PHONY: deps gen start all
 
 deps:
 	pip3 install --upgrade pip
@@ -10,3 +10,8 @@ gen:
 
 start:
 	cd src && python3 GrpcExample.py
+
+all:
+	make deps
+	make gen
+	make start

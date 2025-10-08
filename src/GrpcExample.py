@@ -33,7 +33,7 @@ def service():
     GrpcExampleService_pb2.DESCRIPTOR.services_by_name['GrpcExampleService'].full_name,
     reflection.SERVICE_NAME,
   )
-  reflection.enable_server_reflection(SERVICE_NAMES, server)
+  # reflection.enable_server_reflection(SERVICE_NAMES, server)
   server.add_insecure_port(f'[::]:{APP_PORT}')
   server.start()
   server.wait_for_termination()
