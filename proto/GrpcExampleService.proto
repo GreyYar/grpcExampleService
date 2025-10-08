@@ -1,28 +1,24 @@
 syntax = "proto3";
 
 service GrpcExampleService {
-
-  rpc AddClient (ClientsInfoRequest) returns (addClientReply) {}
-
-  rpc GetClients (EmptyRequest) returns (GetClientsReply) {}
-
-  rpc GetClientByLogin (GetClientByLoginRequest) returns (GetClientsReply) {}
+  rpc AddClient (ClientsInfoRequest) returns (addClientReply);
+  rpc GetClients (EmptyRequest) returns (GetClientsReply);
+  rpc GetClientByLogin (GetClientByLoginRequest) returns (GetClientsReply);
 }
 
 message ClientsInfoRequest {
-  repeated ClientInfoRequest clientsinfo = 1;
+  repeated ClientInfoRequest clients_info = 1;
 }
 
-message ResponseOk {
-}
+message EmptyRequest {}
+message ResponseOk {}
 
 enum ResponseErrorCode {
   UNKNOWN = 0;
   RESPONSE_BAD_REQUEST = 1;
   RESPONSE_ERROR = 2;
 }
-message EmptyRequest {
-}
+
 message ClientInfoRequest {
   string login = 1;
   string email = 2;
