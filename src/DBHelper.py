@@ -47,12 +47,14 @@ class DBHelper:
                 response_ok=GrpcExampleService_pb2.ResponseOk())
         except Error as err:
             if err.args[0].startswith("UNIQUE"):
+                con.close()
                 return GrpcExampleService_pb2.addClientReply(
                     response_error=GrpcExampleService_pb2.ResponseError(
                         message='Login {0} already exists!'.format(
                             client.login),
                         response_error_code=GrpcExampleService_pb2.ResponseErrorCode.RESPONSE_BAD_REQUEST))
             else:
+                con.close()
                 return GrpcExampleService_pb2.addClientReply(
                     response_error=GrpcExampleService_pb2.ResponseError(
                         response_error_code=GrpcExampleService_pb2.ResponseErrorCode.RESPONSE_ERROR,
