@@ -11,21 +11,14 @@ gRPC's Python Example services.
 ____
   Execute following scripts:
   ```commandline
-  generate_file.bat
-  install.bat
-  start.bat
+  bat/generate_file.bat
+  bat/install.bat
+  bat/start.bat
   ```
   
 ## Linux/MacOS
 ____
-  Execute following scripts:
-  ```shell
-  generate_file.sh
-  install.sh
-  start.sh
- ```
-
-Alternatively, execute make commands:
+  Execute make commands:
 ```shell
 make deps
 make gen
