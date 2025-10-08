@@ -4,26 +4,35 @@ gRPC's Python Example services.
 
 0. How install and start
     1. [Windows](#Windows)
-    2. [Linux](#Linux)
+    2. [Linux / MacOS](#Linux/MacOS)
 1. [Work and API](#Work-and-API)
 
 ## Windows
 ____
   Execute following scripts:
-  ```
+  ```commandline
   generate_file.bat
   install.bat
   start.bat
   ```
   
-## Linux
+## Linux/MacOS
 ____
   Execute following scripts:
-  ```
+  ```shell
   generate_file.sh
   install.sh
   start.sh
  ```
+
+Alternatively, execute make commands:
+```shell
+make deps
+make gen
+make start
+```
+
+
 ## __Work and API__
 ____
 The database is created (on local PC) at the first start, to fill it with data, use the API ``` AddClient ``` 
