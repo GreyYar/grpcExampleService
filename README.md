@@ -11,8 +11,8 @@ gRPC's Python Example services.
 ____
   Execute following scripts:
   ```commandline
-  bat/generate_file.bat
   bat/install.bat
+  bat/generate_file.bat
   bat/start.bat
   ```
   
