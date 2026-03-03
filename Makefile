@@ -15,3 +15,15 @@ all:
 	make deps
 	make gen
 	make start
+
+clean-db:
+	rm database/mydatabase.db
+
+docker-build:
+	docker build -t 'grpc-example' .
+
+docker-start:
+	docker run -p 50051:50051 --detach 'grpc-example'
+
+docker-stop:
+	docker stop 'grpc-example'

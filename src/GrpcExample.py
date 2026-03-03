@@ -9,7 +9,8 @@ import GrpcExampleService_pb2
 import GrpcExampleService_pb2_grpc
 import DBHelper
 
-APP_PORT = "50051"
+APP_PORT = 50051
+IS_REFLECTION_ENABLED = True
 
 """ A python class that implements .proto file's methods """
 class GrpcExampleService(GrpcExampleService_pb2_grpc.GrpcExampleService):
@@ -33,7 +34,9 @@ def service():
     GrpcExampleService_pb2.DESCRIPTOR.services_by_name['GrpcExampleService'].full_name,
     reflection.SERVICE_NAME,
   )
-  # reflection.enable_server_reflection(SERVICE_NAMES, server)
+  if IS_REFLECTION_ENABLED:
+    reflection.enable_server_reflection(SERVICE_NAMES, server)
+
   server.add_insecure_port(f'[::]:{APP_PORT}')
   server.start()
   server.wait_for_termination()
